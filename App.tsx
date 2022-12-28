@@ -82,6 +82,7 @@ export default function App() {
             name="HomeScreen"
             component={HomeScreen}
             options={{
+              title: "Home",
               headerShown: false,
               tabBarIcon: ({ color, size }) => (
                 <Ionicons name="home" color={color} size={size} />
