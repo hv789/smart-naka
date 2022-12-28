@@ -4,7 +4,7 @@ import SelectDropdown from "react-native-select-dropdown";
 import { MaterialIcons } from '@expo/vector-icons';
 import HorizontalLine from "../components/HorizontalLine";
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({ navigation }:{navigation:any}) => {
   //state and constants for expandable filter:
   const [isFilterExpanded, setIsFilterExpanded] = useState<Boolean>(false);
   const [choosenFilter, setChoosenFilter] = useState<string[]>([]);
