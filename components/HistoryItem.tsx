@@ -7,7 +7,7 @@ interface Props {
     time: string;
 }
 
-const LocalAlertItem: FC<Props> = ({ VehicleNumber, date, time }) => {
+const HistoryItem: FC<Props> = ({ VehicleNumber, date, time }) => {
     return (
         <View style={styles.rootContainer}>
             <Text style={styles.vehicleNumber}>{VehicleNumber}</Text>
@@ -19,14 +19,14 @@ const LocalAlertItem: FC<Props> = ({ VehicleNumber, date, time }) => {
     );
 };
 
-export default LocalAlertItem;
+export default HistoryItem;
 
 const styles = StyleSheet.create({
     rootContainer: {
         alignSelf: 'stretch',
         backgroundColor: '#FFF4B7',
         borderWidth: 4,
-        borderColor: '#FF9A6F',
+        borderColor: '#FFF4B7',
         borderRadius: 10,
         marginVertical: 8,
         marginHorizontal: 12,
