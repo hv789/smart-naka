@@ -68,15 +68,17 @@ export default DetailsScreen;
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
-    paddingTop: 20,
-    paddingHorizontal: 15,
+    paddingTop: 10,
+    paddingHorizontal: 10,
     backgroundColor: "#fcf9f7",
   },
   card: {
     backgroundColor: "#FFB74B",
     padding: 10,
+    marginVertical: 10,
     borderRadius: 20,
     elevation: 15,
+    shadowColor: "#FFAE00",
   },
   cardText: {
     fontSize: 44,
@@ -106,7 +108,7 @@ const styles = StyleSheet.create({
     // textAlign: "center",
   },
   detailsText: {
-    padding: 10,
+    padding: 5,
     fontSize: 24,
     color: "#000000",
     // textAlign: "center",

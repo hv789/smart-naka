@@ -25,7 +25,8 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-        <View style={styles.rootContainer}>
+      <ScrollView style={styles.safeArea}>
+      <View style={styles.rootContainer}>
           <Image style={styles.image} source={require("../assets/APLogo.png")} />
           <View style={styles.searchVehicleView}>
             <Text style={styles.searchText}>Search by Registration Number</Text>
@@ -106,6 +107,7 @@ const HomeScreen = ({ navigation }) => {
             <Text style={[styles.filterText,{color:"#FFF4B7", fontSize:30}]}>Submit</Text>
           </Pressable>
         </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -118,23 +120,28 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fcf9f7",
   },
+  scrollArea: {
+    flex: 1,
+    backgroundColor: "#fcf9f7",
+  },
   rootContainer: {
     flex: 1,
     alignItems: "center",
     paddingHorizontal: 10,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     backgroundColor: "#fcf9f7",
+    paddingBottom: 20,
   },
   image: {
     opacity: 0.6,
     width: 200,
     height: 200,
-    marginTop: 20,
+    marginTop: 10,
   },
   //search area
   searchVehicleView: {
     alignSelf: "stretch",
-    marginTop: 20,
+    marginTop: 15,
     marginHorizontal: 5,
     padding: 6,
     justifyContent: "center",
@@ -150,7 +157,7 @@ const styles = StyleSheet.create({
   },
   VehicleInput: {
     padding: 7,
-    margin: 5,
+    margin: 4,
     marginTop: 10,
     alignSelf: "stretch",
     backgroundColor: "#FFF4B7",
@@ -175,7 +182,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     alignItems: "stretch",
     marginHorizontal: 5,
-    paddingBottom: 5,
+    paddingBottom: 3,
     justifyContent: "space-between",
     backgroundColor: "#FFDF8F",
     borderRadius: 10,
@@ -231,7 +238,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     alignItems: "center",
     justifyContent: "center",
-    margin: 20,
+    margin: 15,
     marginHorizontal: 30,
     padding: 5,
     backgroundColor: "#AF6A03",
