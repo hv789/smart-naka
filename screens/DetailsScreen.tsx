@@ -75,8 +75,10 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: "#FFB74B",
     padding: 10,
+    marginVertical: 10,
     borderRadius: 20,
     elevation: 15,
+    shadowColor: "#FFAE00",
   },
   cardText: {
     fontSize: 44,
@@ -106,7 +108,7 @@ const styles = StyleSheet.create({
     // textAlign: "center",
   },
   detailsText: {
-    padding: 10,
+    padding: 5,
     fontSize: 24,
     color: "#000000",
     // textAlign: "center",
