@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     elevation: 15,
   },
   cardText: {
-    fontSize: 44,
+    fontSize: 48,
     fontWeight: "800",
     color: "#AF6A03",
     textAlign: "center",
