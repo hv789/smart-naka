@@ -1,13 +1,10 @@
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 import React from "react";
 
 import HistoryItem from "../components/HistoryItem";
 
-const SearchHistoryScreen = ({ navigation }) => {
-  const pressHandler = () => {
-    navigation.navigate("DetailsScreen");
-  };
+const SearchHistoryScreen = () => {
 
   return (
     <View style={styles.rootContainer}>
@@ -21,7 +18,6 @@ const SearchHistoryScreen = ({ navigation }) => {
         date="10/12/2022"
         time="22:50"
       />
-      <Button title="Go to Details" onPress={pressHandler} />
     </View>
   );
 };

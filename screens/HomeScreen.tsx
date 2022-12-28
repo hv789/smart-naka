@@ -4,10 +4,15 @@ import SelectDropdown from "react-native-select-dropdown";
 import { MaterialIcons } from '@expo/vector-icons';
 import HorizontalLine from "../components/HorizontalLine";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   //state and constants for expandable filter:
   const [isFilterExpanded, setIsFilterExpanded] = useState<Boolean>(false);
   const [choosenFilter, setChoosenFilter] = useState<string[]>([]);
+
+  const pressHandler = () => {
+    navigation.navigate("DetailsScreen");
+  };
+
   const FilterExpandHandler = () => {
     setIsFilterExpanded(!isFilterExpanded);
   }
@@ -97,9 +102,9 @@ const HomeScreen = () => {
           </View>
           }
           {/**SUBMIT BUTTON YAHA PE HAI */}
-          <View style={styles.submitButton}>
+          <Pressable style={styles.submitButton} onPress={pressHandler} android_ripple={{color: "#d69533"}}>
             <Text style={[styles.filterText,{color:"#FFF4B7", fontSize:30}]}>Submit</Text>
-          </View>
+          </Pressable>
         </View>
     </SafeAreaView>
   );
