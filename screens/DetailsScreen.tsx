@@ -68,8 +68,8 @@ export default DetailsScreen;
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
-    paddingTop: 20,
-    paddingHorizontal: 15,
+    paddingTop: 10,
+    paddingHorizontal: 10,
     backgroundColor: "#fcf9f7",
   },
   card: {
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     elevation: 15,
   },
   cardText: {
-    fontSize: 48,
+    fontSize: 44,
     fontWeight: "800",
     color: "#AF6A03",
     textAlign: "center",
