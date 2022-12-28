@@ -25,15 +25,14 @@ const styles = StyleSheet.create({
     rootContainer: {
         alignSelf: 'stretch',
         backgroundColor: '#FFF4B7',
-        borderWidth: 4,
-        borderColor: '#FFF4B7',
         borderRadius: 10,
         marginVertical: 8,
-        marginHorizontal: 12,
-        elevation: 10,
+        marginHorizontal: 8,
+        elevation: 15,
     },
     vehicleNumber: {
         padding: 8,
+        paddingBottom: 5,
         fontSize: 24,
         fontWeight: '700', // 700 is bold, 400 is normal, semibold is 600
         color: '#B06A00',
@@ -42,7 +41,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingHorizontal: 8,
-        paddingBottom: 2,
+        paddingVertical: 3,
     },
     dateTime:{
         fontSize: 24,

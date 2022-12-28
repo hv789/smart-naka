@@ -29,11 +29,12 @@ const styles = StyleSheet.create({
         borderColor: '#FF9A6F',
         borderRadius: 10,
         marginVertical: 8,
-        marginHorizontal: 12,
-        elevation: 10,
+        marginHorizontal: 3,
+        elevation: 15,
     },
     vehicleNumber: {
         padding: 8,
+        paddingVertical: 5,
         fontSize: 24,
         fontWeight: '700', // 700 is bold, 400 is normal, semibold is 600
         color: '#B06A00',

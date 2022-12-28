@@ -32,7 +32,7 @@ export default function App() {
             tabBarActiveBackgroundColor: "#FFF4B7",
             tabBarStyle: {
               // backgroundColor: "#FFAE35",
-              backgroundColor: "#ffcf52",
+              backgroundColor: "#FFD56C",
               height: Platform.OS === "ios" ? 100 : 70,
               borderTopLeftRadius: 10,
               borderTopRightRadius: 10,

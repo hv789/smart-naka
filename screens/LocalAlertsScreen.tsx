@@ -10,6 +10,11 @@ const LocalAlertsScreen = () => {
         date="10/12/2022"
         time="22:50"
       />
+      <LocalAlertsItem
+        VehicleNumber="UP 93 AD 9876"
+        date="10/12/2022"
+        time="22:50"
+      />
     </View>
   );
 };
@@ -20,7 +25,7 @@ const styles = StyleSheet.create({
   rootContainer: {
       flex: 1, 
       paddingTop: 20, 
-      paddingHorizontal: 20,
+      paddingHorizontal: 15,
       backgroundColor: '#fcf9f7',
   },
 });
