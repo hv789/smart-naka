@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "smart-naka",
+    "name": "Smart Naka",
     "slug": "smart-naka",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/APLogo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/APLogo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#fcf9f7"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -18,16 +18,24 @@
       "**/*"
     ],
     "ios": {
+      "buildNumber": "1.0.0",
       "supportsTablet": true
     },
     "android": {
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.hv789.smartnaka.v100"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "aa1e794d-88db-47f8-b2dd-46999e71f68d"
+      }
     }
   }
 }
