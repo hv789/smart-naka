@@ -30,7 +30,7 @@ function HomeTabs() {
         // headerTransparent: true,
         // headerTintColor: "#FFE15D",
         headerTitleAlign: "center",
-        // headerShadowVisible: false,
+        headerShadowVisible: false,
         tabBarActiveBackgroundColor: "#FFF4B7",
         tabBarStyle: {
           // backgroundColor: "#FFAE35",
@@ -69,8 +69,8 @@ function HomeTabs() {
           },
           headerStyle: {
             backgroundColor: "#fcf9f7",
-            borderBottomWidth: 4,
-            borderBottomColor: "#AF6A03",
+            // borderBottomWidth: 4,
+            // borderBottomColor: "#AF6A03",
           },
           headerTintColor: "#AF6A03",
           title: "Search History",
@@ -103,8 +103,8 @@ function HomeTabs() {
           },
           headerStyle: {
             backgroundColor: "#fcf9f7",
-            borderBottomWidth: 4,
-            borderBottomColor: "#FF6423",
+            // borderBottomWidth: 4,
+            // borderBottomColor: "#FF6423",
           },
           tabBarBadge: 3,
           title: "Local Alerts",
