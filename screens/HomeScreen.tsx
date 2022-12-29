@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   //search area
   searchVehicleView: {
     alignSelf: "stretch",
-    marginTop: 15,
+    marginTop: 20,
     marginHorizontal: 5,
     padding: 6,
     justifyContent: "center",
@@ -239,6 +239,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     margin: 15,
+    marginTop: 20,
     marginHorizontal: 30,
     padding: 5,
     backgroundColor: "#AF6A03",
