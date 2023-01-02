@@ -1,9 +1,13 @@
 import { FC } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-const HorizontalLine: FC = () => {
+interface Props {
+    style?: {}
+};
+
+const HorizontalLine: FC<Props> = ({style}) => {
     return (
-        <View style={styles.dividerLine}>
+        <View style={[styles.dividerLine,style]}>
             <View style={styles.Line} />
             <Text style={styles.dividerLineText}>OR</Text>
             <View style={styles.Line} />

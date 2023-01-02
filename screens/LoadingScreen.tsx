@@ -12,6 +12,7 @@ const LoadingScreen = () => {
       <Image
         style={styles.image}
         source={require("../assets/police-car-bro.png")}
+        resizeMode="contain"
       />
     </View>
   );
@@ -22,7 +23,7 @@ export default LoadingScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "space-evenly",
+    justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fcf9f7",
   },
