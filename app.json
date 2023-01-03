@@ -34,7 +34,7 @@
       ],
       "intentFilters": [{
         "action": ["MAIN", "DOWNLOAD_COMPLETE"],
-        "category": "LAUNCHER",
+        "category": "LAUNCHER"
       }]  
     },
     "web": {
