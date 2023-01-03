@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: 24,
         fontWeight: '700', // 700 is bold, 400 is normal, semibold is 600
-        color: '#B06A00',
+        color: '#965A00',
         backgroundColor: '#FFC400',
         elevation: 10,
         padding: 16,
