@@ -27,7 +27,15 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFF7DB"
       },
-      "package": "com.hv789.smartnaka.v100"
+      "package": "com.hv789.smartnaka.v100",
+      "usesCleartextTraffic": true,
+      "permissions": [
+        "INTERNET"
+      ],
+      "intentFilters": [{
+        "action": ["MAIN", "DOWNLOAD_COMPLETE"],
+        "category": "LAUNCHER",
+      }]  
     },
     "web": {
       "favicon": "./assets/favicon.png"

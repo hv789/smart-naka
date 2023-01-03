@@ -1,21 +1,33 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, ActivityIndicator, Pressable } from "react-native";
+import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
 import LoadingScreen from "./LoadingScreen";
 
 const DetailsScreen = () => {
-  const [isFetched, setIsFetched] = useState(false);
+  const [vehicleData, setVehicleData] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
-  const savePressHandler = () => {
-    console.log("save option is clicked");
-  }
+  
+  // fetch method POST : -
+
+  // fetch('https://facebook.github.io/react-native/movies.json', {
+  //   method: 'POST',
+  //   headers: {
+  //     Accept: 'application/json',
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: JSON.stringify({
+  //     firstParam: 'yourValue',
+  //     secondParam: 'yourOtherValue',
+  //   }),
+  // });
+
+  // const DetailsScreen = () => {
 
   if (isLoading) {
     return <LoadingScreen />;
-  } 
-  else {
+  } else {
     return (
       <View style={styles.rootContainer}>
         <View style={styles.card}>
@@ -56,13 +68,8 @@ const DetailsScreen = () => {
           </View>
           <View style={styles.shareOptions}>
             <View>
-              <Pressable 
-                onPress={savePressHandler}
-                android_ripple={{color: '#FFF4B7', borderless: true, radius: 35,}}
-              >
-                <MaterialIcons name="save-alt" size={40} color="#9D5E00" />
-                <Text style={styles.shareOptionsText}>Save</Text>
-              </Pressable>
+              <MaterialIcons name="save-alt" size={40} color="#9D5E00" />
+              <Text style={styles.shareOptionsText}>Save</Text>
             </View>
             <View>
               <MaterialIcons name="content-copy" size={40} color="#9D5E00" />

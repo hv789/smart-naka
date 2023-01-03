@@ -14,7 +14,7 @@ const PrimaryButton: FC<Props> = ({ text, icon, onPress, textStyle, iconStyle })
         <View style={styles.buttonContainer}>
             <View>
                 <Pressable style={styles.pressable}
-                android_ripple={{color: '#FEED95', borderless: true, radius: 25, foreground: true}}
+                android_ripple={{color: '#FEED95', foreground: true}}
                 onPress={onPress}>
                     <Text style={[styles.buttonText, textStyle]}>{text}</Text>
                 </Pressable>    
@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
         fontWeight: '700', // 700 is bold, 400 is normal, semibold is 600
         color: '#965A00',
         backgroundColor: '#FFC400',
-        elevation: 10,
         padding: 16,
+        elevation: 10,
         paddingHorizontal: 14,
         borderRadius: 15,
         paddingRight: 50,
