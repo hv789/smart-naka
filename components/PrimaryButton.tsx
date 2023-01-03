@@ -14,7 +14,7 @@ const PrimaryButton: FC<Props> = ({ text, icon, onPress, textStyle, iconStyle })
         <View style={styles.buttonContainer}>
             <View>
                 <Pressable style={styles.pressable}
-                android_ripple={{color: '#FFC400', borderless: true}}
+                android_ripple={{color: '#FEED95', borderless: true, radius: 25, foreground: true}}
                 onPress={onPress}>
                     <Text style={[styles.buttonText, textStyle]}>{text}</Text>
                 </Pressable>    
