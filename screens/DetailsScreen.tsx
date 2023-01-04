@@ -1,21 +1,74 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, ActivityIndicator, Pressable } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import RNFetchBlob from 'react-native-fetch-blob'
+import * as FileSystem from 'expo-file-system';
+import RNFetchBlob from 'react-native-fetch-blob';
 
 import LoadingScreen from "./LoadingScreen";
 
+declare module 'react-native-fetch-blob' {
+  interface RNFetchBlobStatic extends RNFetchBlob {
+    // Add any custom properties or methods here
+  }
+}
+
 const DetailsScreen = () => {
-  const [isFetched, setIsFetched] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const savePressHandler = () => {
+    downloadPDF('http://www.africau.edu/images/default/sample.pdf', 'myfile.pdf')
+    .then((fileUri) => {
+      console.log(`PDF downloaded to: ${fileUri}`);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
     console.log("save option is clicked");
+    console.log(FileSystem.documentDirectory);
   }
 
   const sharePressHandler = () => {
     console.log("share option is clicked");
   }
+
+  const fetchAPIData = () => {
+
+  }
+              //correct working code
+  const downloadPDF = async (url: string, fileName: string) => {
+    // Fetch the PDF file from the URL
+    const response = await fetch(url);
+  
+    // Check if the response is OK
+    if (response.ok) {
+      // Get the file data as a Blob
+      const fileBlob = await response.blob();
+  
+      // Read the Blob as a base64-encoded string
+      const fileData = await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          resolve(reader.result as string);
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(fileBlob);
+      });
+  
+      // Remove the "data:application/pdf;base64," prefix from the base64 string
+      const base64 = fileData.split(',')[1];
+  
+      // Create a new file in the download directory
+      const fileUri = `${FileSystem.documentDirectory}${fileName}`;
+      await FileSystem.writeAsStringAsync(fileUri, base64, { encoding: FileSystem.EncodingType.Base64 });
+  
+      // Return the file URI
+      return fileUri;
+    } else {
+      throw new Error(`Failed to fetch PDF: ${response.statusText}`);
+    }
+  };
+
+  
 
   if (isLoading) {
     return <LoadingScreen />;
