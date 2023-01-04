@@ -13,6 +13,10 @@ const DetailsScreen = () => {
     console.log("save option is clicked");
   }
 
+  const sharePressHandler = () => {
+    console.log("share option is clicked");
+  }
+
   if (isLoading) {
     return <LoadingScreen />;
   } 
@@ -56,26 +60,23 @@ const DetailsScreen = () => {
             />
           </View>
           <View style={styles.shareOptions}>
-            <View>
+            <View style={{flex: 1, alignItems: 'center',borderRightWidth: 2, borderColor: "#AF6A03", paddingRight: 15}}>
               <Pressable 
                 onPress={savePressHandler}
-                android_ripple={{color: '#FFF4B7', borderless: true, radius: 35,}}
+                android_ripple={{color: '#FFF4B7', borderless: true, radius: 50,}}
               >
                 <MaterialIcons name="save-alt" size={40} color="#9D5E00" />
                 <Text style={styles.shareOptionsText}>Save</Text>
               </Pressable>
             </View>
-            <View>
-              <MaterialIcons name="content-copy" size={40} color="#9D5E00" />
-              <Text style={styles.shareOptionsText}>Copy</Text>
-            </View>
-            <View>
-              <MaterialIcons name="share" size={40} color="#9D5E00" />
-              <Text style={styles.shareOptionsText}>Share</Text>
-            </View>
-            <View>
-              <MaterialIcons name="close" size={40} color="#9D5E00" />
-              <Text style={styles.shareOptionsText}>Close</Text>
+            <View style={{flex: 1, alignItems: 'center', paddingLeft: 15}}>
+              <Pressable 
+                  onPress={sharePressHandler}
+                  android_ripple={{color: '#FFF4B7', borderless: true, radius: 50,}}
+              >
+                <MaterialIcons name="share" size={40} color="#9D5E00" />
+                <Text style={styles.shareOptionsText}>Share</Text>
+              </Pressable>
             </View>
           </View>
         </View>
@@ -163,7 +164,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginTop: 18,
     padding: 10,
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
     // backgroundColor: "#FFD56C",
     borderTopWidth: 1,
