@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, ActivityIndicator, Pressable } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import * as FileSystem from 'expo-file-system';
-import RNFetchBlob from 'react-native-fetch-blob';
-
 import LoadingScreen from "./LoadingScreen";
 
 declare module 'react-native-fetch-blob' {
