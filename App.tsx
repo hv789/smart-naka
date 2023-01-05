@@ -7,6 +7,8 @@ import HomeScreen from "./screens/HomeScreen";
 import LocalAlertsScreen from "./screens/LocalAlertsScreen";
 import SearchHistoryScreen from "./screens/SearchHistoryScreen";
 import DetailsScreen from "./screens/DetailsScreen";
+import InputScreen from "./screens/InputScreen";
+import ASInputScreen from "./screens/ASInputScreen";
 import { Platform } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -17,6 +19,8 @@ type RootParamList = {
   SearchHistoryScreen: undefined;
   DetailsScreen: undefined;
   HomeTabs: undefined;
+  InputScreen: undefined;
+  ASInputScreen: undefined;
 };
 
 const Tabs = createBottomTabNavigator<RootParamList>();
@@ -138,6 +142,30 @@ function App() {
           name="Home"
           component={HomeTabs}
           options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="InputScreen"
+          component={InputScreen}
+          options={{
+            title: "Search",
+            headerTitleStyle: {
+              fontSize: 36,
+              color: "#AF6A03",
+            },
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="ASInputScreen"
+          component={ASInputScreen}
+          options={{
+            title: "Advanced Search",
+            headerTitleStyle: {
+              fontSize: 36,
+              color: "#AF6A03",
+            },
             headerShown: false,
           }}
         />

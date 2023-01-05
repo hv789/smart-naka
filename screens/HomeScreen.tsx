@@ -8,11 +8,11 @@ import PrimaryButton from "../components/PrimaryButton";
 const HomeScreen = ({ navigation }:{navigation:any}) => {
 
   const pressHandler = () => {
-    navigation.navigate("DetailsScreen");
+    navigation.navigate("InputScreen");
   };
 
   const registrationNumberHandler = () => {
-    console.log("Registration Number");
+    navigation.navigate("ASInputScreen");
   }
 
   const filterDropDown: string[] = ["name","vehicle","date","time","location","status","type","description","officer","region"]
@@ -36,7 +36,7 @@ const HomeScreen = ({ navigation }:{navigation:any}) => {
           {/**BUTTONS */}
           <View style={styles.buttonsView}>
             <PrimaryButton 
-              text="Registration Numer"
+              text="Registration Number"
               textStyle={{paddingLeft:13}}
               icon={<MaterialIcons name="search" size={85} color="#926900" />}
               //onPress={registrationNumberHandler}
