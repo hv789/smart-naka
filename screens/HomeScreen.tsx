@@ -37,7 +37,7 @@ const HomeScreen = ({ navigation }:{navigation:any}) => {
           <View style={styles.buttonsView}>
             <PrimaryButton 
               text="Registration Number"
-              textStyle={{paddingLeft:13}}
+              //textStyle={{paddingLeft:13}}
               icon={<MaterialIcons name="search" size={85} color="#926900" />}
               //onPress={registrationNumberHandler}
               onPress={pressHandler}
@@ -45,7 +45,7 @@ const HomeScreen = ({ navigation }:{navigation:any}) => {
             <HorizontalLine/>
             <PrimaryButton 
               text="Advanced Search"
-              textStyle={{paddingLeft:20}}
+              //textStyle={{paddingLeft:20}}
               icon={<MaterialIcons name="format-list-bulleted" size={85} color="#926900" />}
               onPress={registrationNumberHandler}
             />

@@ -26,7 +26,6 @@ const PrimaryButton: FC<Props> = ({ text, icon, onPress, textStyle, iconStyle })
                     {icon}
                 </Pressable>
             </View> 
-    
         </View>
     );
 };
@@ -41,6 +40,7 @@ const styles = StyleSheet.create({
     buttonContainer: {
         flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'center',
         padding: 12,
         paddingTop: 24,
         marginVertical: 10,
@@ -54,17 +54,17 @@ const styles = StyleSheet.create({
         padding: 16,
         elevation: 10,
         paddingHorizontal: 14,
-        borderRadius: 15,
-        paddingRight: 50,
+        borderBottomLeftRadius: 15,
+        borderTopLeftRadius: 15,
     },
     iconView: {
         borderRadius: 25,
         elevation: 10,
         backgroundColor: '#FEED95',
         padding: 6,
-        position: 'absolute',
-        bottom: 5,
-        right: 5,
+        //position: 'absolute',
+        // bottom: 5,
+        // right: 5,
         marginRight: 5,
     },
 });

@@ -15,6 +15,7 @@ import COLORS from "../components/UI/colors";
 import Input from "../components/Input";
 import DropdownInput from "../components/DropdownInput";
 import Loader from "../components/Loader";
+import LoadingScreen from "./LoadingScreen";
 
 const colors = [
   "ASH COLOUR",
@@ -121,8 +122,8 @@ const RegistrationScreen = ({ navigation }: { navigation: any }) => {
     Keyboard.dismiss();
     let isValid = true;
 
-    console.log("errors", errors);
-    console.log("inputs", inputs);
+    // console.log("errors", errors);
+    // console.log("inputs", inputs);
 
     if (inputs.fullName === "") {
       handleError("Please enter full name", "fullName");
@@ -192,190 +193,202 @@ const RegistrationScreen = ({ navigation }: { navigation: any }) => {
     setInputs((prevInputs) => ({ ...prevInputs, [input]: text }));
   };
 
-  const handleBlur = (input: any) => {
-    setErrors((prevErrors) => ({ ...prevErrors, [input]: null }));
-  };
-  return (
-    <SafeAreaView style={{ backgroundColor: COLORS.lightBrown, flex: 1 }}>
-      {/* <Loader visible={loading} /> */}
-      <ScrollView
-        contentContainerStyle={{ paddingTop: 50, paddingHorizontal: 20 }}
-      >
-        <Text
-          style={{ color: COLORS.darkBrown, fontSize: 40, fontWeight: "bold" }}
+  // const handleBlur = (input: any) => {
+  //   setErrors((prevErrors) => ({ ...prevErrors, [input]: null }));
+  // };
+  if (loading) {
+    return <LoadingScreen />;
+  } else {
+    return (
+      <SafeAreaView style={{ backgroundColor: COLORS.lightBrown, flex: 1 }}>
+        {/* <Loader visible={loading} /> */}
+        <ScrollView
+          contentContainerStyle={{ paddingTop: 50, paddingHorizontal: 20 }}
         >
-          Advanced Search
-        </Text>
-        <Text style={{ color: COLORS.grey, fontSize: 20, marginVertical: 10 }}>
-          Enter Vehicle Details to Search
-        </Text>
-        <View style={{ marginVertical: 20 }}>
-          <Input
-            //onChangeText={text => handleOnchange.bind(text,'fullName')}
-            // onChangeText={({ text }:{text:any}) => handleOnchange.bind(text, 'fullName')}
-            //onFocus={() => handleError.bind(null, 'fullName')}
-            //onChangeText={text => handleOnchange(text, 'fullName')}
-            onFocus={() => handleError(null, "fullName")}
-            //onBlur={() => handleBlur('fullName')}
-            onBlur={() =>
-              handleError(
-                inputs.fullName ? null : "Please enter full name",
-                "fullName"
-              )
-            }
-            onChangeText={(text) => handleOnchange(text, "fullName")}
-            iconName="person"
-            label="Full Name"
-            placeholder="Enter your full name"
-            error={errors.fullName}
-          />
+          <Text
+            style={{
+              color: COLORS.darkBrown,
+              fontSize: 40,
+              fontWeight: "bold",
+            }}
+          >
+            Advanced Search
+          </Text>
+          <Text
+            style={{ color: COLORS.grey, fontSize: 20, marginVertical: 10 }}
+          >
+            Enter Vehicle Details to Search
+          </Text>
+          <View style={{ marginVertical: 20 }}>
+            <Input
+              //onChangeText={text => handleOnchange.bind(text,'fullName')}
+              // onChangeText={({ text }:{text:any}) => handleOnchange.bind(text, 'fullName')}
+              //onFocus={() => handleError.bind(null, 'fullName')}
+              //onChangeText={text => handleOnchange(text, 'fullName')}
+              onFocus={() => handleError(null, "fullName")}
+              //onBlur={() => handleBlur('fullName')}
+              onBlur={() =>
+                handleError(
+                  inputs.fullName ? null : "Please enter full name",
+                  "fullName"
+                )
+              }
+              onChangeText={(text) => handleOnchange(text, "fullName")}
+              iconName="person"
+              label="Full Name"
+              placeholder="Enter your full name"
+              error={errors.fullName}
+            />
 
-          <Input
-            onFocus={() => handleError(null, "city")}
-            onChangeText={(text) => handleOnchange(text, "city")}
-            iconName="location"
-            label="City"
-            placeholder="Enter your city"
-            error={errors.city}
-          />
+            <Input
+              onFocus={() => handleError(null, "city")}
+              onChangeText={(text) => handleOnchange(text, "city")}
+              iconName="location"
+              label="City"
+              placeholder="Enter your city"
+              error={errors.city}
+            />
 
-          <Input
-            keyboardType="numeric"
-            onFocus={() => handleError(null, "pincode")}
-            onChangeText={(text) => handleOnchange(text, "pincode")}
-            iconName="pin"
-            label="Pincode"
-            placeholder="Enter your pincode"
-            error={errors.pincode}
-          />
+            <Input
+              keyboardType="numeric"
+              onFocus={() => handleError(null, "pincode")}
+              onChangeText={(text) => handleOnchange(text, "pincode")}
+              iconName="pin"
+              label="Pincode"
+              placeholder="Enter your pincode"
+              error={errors.pincode}
+            />
 
-          <Input
-            keyboardType="numeric"
-            onFocus={() => handleError(null, "mobile")}
-            onChangeText={(text) => handleOnchange(text, "mobile")}
-            iconName="keypad"
-            label="Mobile"
-            placeholder="Enter your mobile number"
-            error={errors.mobile}
-          />
+            <Input
+              keyboardType="numeric"
+              onFocus={() => handleError(null, "mobile")}
+              onChangeText={(text) => handleOnchange(text, "mobile")}
+              iconName="keypad"
+              label="Mobile"
+              placeholder="Enter your mobile number"
+              error={errors.mobile}
+            />
 
-          <Input
-            onFocus={() => handleError(null, "email")}
-            onChangeText={(text) => handleOnchange(text, "email")}
-            iconName="at"
-            label="Email"
-            placeholder="Enter your email id"
-            error={errors.email}
-          />
+            <Input
+              onFocus={() => handleError(null, "email")}
+              onChangeText={(text) => handleOnchange(text, "email")}
+              iconName="at"
+              label="Email"
+              placeholder="Enter your email id"
+              error={errors.email}
+            />
 
-          <DropdownInput
-            onFocus={() => handleError(null, "vehicleType")}
-            onBlur={() =>
-              handleError(
-                inputs.vehicleType ? null : "Please select vehicle type",
-                "vehicleType"
-              )
-            }
-            onChangeText={(text) => handleOnchange(text, "vehicleType")}
-            iconName="car"
-            label="Vehicle Type"
-            placeholder="Select your vehicle type"
-            error={errors.vehicleType}
-            data={vehicleTypes}
-          />
+            <DropdownInput
+              onFocus={() => handleError(null, "vehicleType")}
+              onBlur={() =>
+                handleError(
+                  inputs.vehicleType ? null : "Please select vehicle type",
+                  "vehicleType"
+                )
+              }
+              onChangeText={(text) => handleOnchange(text, "vehicleType")}
+              iconName="car"
+              label="Vehicle Type"
+              placeholder="Select your vehicle type"
+              error={errors.vehicleType}
+              data={vehicleTypes}
+            />
 
-          <Input
-            onFocus={() => handleError(null, "registrationNumber")}
-            onBlur={() =>
-              handleError(
-                inputs.registrationNumber
-                  ? null
-                  : "Please enter registration number",
-                "registrationNumber"
-              )
-            }
-            onChangeText={(text) => handleOnchange(text, "registrationNumber")}
-            iconName="pencil"
-            label="Registration Number"
-            placeholder="Enter your registration number"
-            error={errors.registrationNumber}
-          />
+            <Input
+              onFocus={() => handleError(null, "registrationNumber")}
+              onBlur={() =>
+                handleError(
+                  inputs.registrationNumber
+                    ? null
+                    : "Please enter registration number",
+                  "registrationNumber"
+                )
+              }
+              onChangeText={(text) =>
+                handleOnchange(text, "registrationNumber")
+              }
+              iconName="pencil"
+              label="Registration Number"
+              placeholder="Enter your registration number"
+              error={errors.registrationNumber}
+            />
 
-          <Input
-            onFocus={() => handleError(null, "chasisNumber")}
-            onBlur={() =>
-              handleError(
-                inputs.chasisNumber ? null : "Please enter chasis number",
-                "chasisNumber"
-              )
-            }
-            onChangeText={(text) => handleOnchange(text, "chasisNumber")}
-            iconName="ios-construct"
-            label="Chasis Number"
-            placeholder="Enter your chasis number"
-            error={errors.chasisNumber}
-          />
+            <Input
+              onFocus={() => handleError(null, "chasisNumber")}
+              onBlur={() =>
+                handleError(
+                  inputs.chasisNumber ? null : "Please enter chasis number",
+                  "chasisNumber"
+                )
+              }
+              onChangeText={(text) => handleOnchange(text, "chasisNumber")}
+              iconName="ios-construct"
+              label="Chasis Number"
+              placeholder="Enter your chasis number"
+              error={errors.chasisNumber}
+            />
 
-          <Input
-            onFocus={() => handleError(null, "engineNumber")}
-            onBlur={() =>
-              handleError(
-                inputs.engineNumber ? null : "Please enter engine number",
-                "engineNumber"
-              )
-            }
-            onChangeText={(text) => handleOnchange(text, "engineNumber")}
-            iconName="cog"
-            label="Engine Number"
-            placeholder="Enter your engine number"
-            error={errors.engineNumber}
-          />
+            <Input
+              onFocus={() => handleError(null, "engineNumber")}
+              onBlur={() =>
+                handleError(
+                  inputs.engineNumber ? null : "Please enter engine number",
+                  "engineNumber"
+                )
+              }
+              onChangeText={(text) => handleOnchange(text, "engineNumber")}
+              iconName="cog"
+              label="Engine Number"
+              placeholder="Enter your engine number"
+              error={errors.engineNumber}
+            />
 
-          <Input
-            keyboardType="numeric"
-            onFocus={() => handleError(null, "yearOfManufacture")}
-            onChangeText={(text) => handleOnchange(text, "yearOfManufacture")}
-            iconName="calendar"
-            label="Year of Manufacture"
-            placeholder="Enter year of manufacture"
-            error={errors.yearOfManufacture}
-          />
+            <Input
+              keyboardType="numeric"
+              onFocus={() => handleError(null, "yearOfManufacture")}
+              onChangeText={(text) => handleOnchange(text, "yearOfManufacture")}
+              iconName="calendar"
+              label="Year of Manufacture"
+              placeholder="Enter year of manufacture"
+              error={errors.yearOfManufacture}
+            />
 
-          <DropdownInput
-            onFocus={() => handleError(null, "color")}
-            onChangeText={(text) => handleOnchange(text, "color")}
-            iconName="md-color-filter-sharp"
-            label="Color"
-            placeholder="Select vehicle color"
-            error={errors.color}
-            data={colors}
-          />
+            <DropdownInput
+              onFocus={() => handleError(null, "color")}
+              onChangeText={(text) => handleOnchange(text, "color")}
+              iconName="md-color-filter-sharp"
+              label="Color"
+              placeholder="Select vehicle color"
+              error={errors.color}
+              data={colors}
+            />
 
-          <View style={styles.container}>
-            <Text style={styles.searchButton} onPress={validate}>
-              {/* <Text>Search</Text> */}
-              Search
-            </Text>
+            <View style={styles.container}>
+              <Text style={styles.searchButton} onPress={validate}>
+                {/* <Text>Search</Text> */}
+                Search
+              </Text>
 
-            {/* icon={<MaterialIcons name="search" size={85} color="#926900" />} */}
+              {/* icon={<MaterialIcons name="search" size={85} color="#926900" />} */}
 
-            <Text
-              onPress={() => navigation.navigate("InputScreen")}
-              style={{
-                color: COLORS.brown,
-                fontWeight: "600",
-                textAlign: "center",
-                fontSize: 16,
-                marginVertical: 18,
-              }}
-            >
-              Search by Registration No.
-            </Text>
+              <Text
+                onPress={() => navigation.navigate("InputScreen")}
+                style={{
+                  color: COLORS.brown,
+                  fontWeight: "600",
+                  textAlign: "center",
+                  fontSize: 16,
+                  marginVertical: 18,
+                }}
+              >
+                Search by Registration No.
+              </Text>
+            </View>
           </View>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
 };
 
 export default RegistrationScreen;

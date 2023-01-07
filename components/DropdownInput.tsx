@@ -98,6 +98,8 @@ const Input: FC<Props> = ({
           }}
           data={data}
           onSelect={(selectedItem, index) => {
+            onChangeText(selectedItem);
+            // selectedItem ? onChangeText(selectedItem) : onChangeText("");
             console.log(selectedItem, index);
           }}
           buttonTextAfterSelection={(selectedItem, index) => {
