@@ -14,9 +14,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "buildNumber": "1.0.0",
       "supportsTablet": true
@@ -29,13 +27,7 @@
       },
       "package": "com.hv789.smartnaka.v100",
       "usesCleartextTraffic": true,
-      "permissions": [
-        "INTERNET"
-      ],
-      "intentFilters": [{
-        "action": ["MAIN", "DOWNLOAD_COMPLETE"],
-        "category": "LAUNCHER"
-      }]  
+      "permissions": ["INTERNET"]
     },
     "web": {
       "favicon": "./assets/favicon.png"

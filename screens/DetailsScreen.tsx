@@ -1,77 +1,67 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, ActivityIndicator, Pressable } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ActivityIndicator,
+  Pressable,
+} from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import * as FileSystem from 'expo-file-system';
 import LoadingScreen from "./LoadingScreen";
-
-declare module 'react-native-fetch-blob' {
-  interface RNFetchBlobStatic extends RNFetchBlob {
-    // Add any custom properties or methods here
-  }
-}
+import { downloadFile } from "expo-filedownload";
 
 const DetailsScreen = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
+  const PDF_URL = { url: "http://www.pdf995.com/samples/pdf.pdf" };
 
   const savePressHandler = () => {
-    downloadPDF('http://www.africau.edu/images/default/sample.pdf', 'myfile.pdf')
-    .then((fileUri) => {
-      console.log(`PDF downloaded to: ${fileUri}`);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-    console.log("save option is clicked");
-    console.log(FileSystem.documentDirectory);
-  }
+    setIsDownloading(true);
+    downloadFile(PDF_URL.url).then(() => setIsDownloading(false));
+  };
+
+
 
   const sharePressHandler = () => {
     console.log("share option is clicked");
-  }
-
-  const fetchAPIData = () => {
-
-  }
-              //correct working code
-  const downloadPDF = async (url: string, fileName: string) => {
-    // Fetch the PDF file from the URL
-    const response = await fetch(url);
-  
-    // Check if the response is OK
-    if (response.ok) {
-      // Get the file data as a Blob
-      const fileBlob = await response.blob();
-  
-      // Read the Blob as a base64-encoded string
-      const fileData = await new Promise<string>((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          resolve(reader.result as string);
-        };
-        reader.onerror = reject;
-        reader.readAsDataURL(fileBlob);
-      });
-  
-      // Remove the "data:application/pdf;base64," prefix from the base64 string
-      const base64 = fileData.split(',')[1];
-  
-      // Create a new file in the download directory
-      const fileUri = `${FileSystem.documentDirectory}${fileName}`;
-      await FileSystem.writeAsStringAsync(fileUri, base64, { encoding: FileSystem.EncodingType.Base64 });
-  
-      // Return the file URI
-      return fileUri;
-    } else {
-      throw new Error(`Failed to fetch PDF: ${response.statusText}`);
-    }
   };
 
-  
+  // CODE FOR DOWNLOADING IN APP'S PRIVATE ACCESS STORAGE
+  // const downloadPDF = async (url: string, fileName: string) => {
+  //   // Fetch the PDF file from the URL
+  //   const response = await fetch(url);
 
-  if (isLoading) {
+  //   // Check if the response is OK
+  //   if (response.ok) {
+  //     // Get the file data as a Blob
+  //     const fileBlob = await response.blob();
+
+  //     // Read the Blob as a base64-encoded string
+  //     const fileData = await new Promise<string>((resolve, reject) => {
+  //       const reader = new FileReader();
+  //       reader.onloadend = () => {
+  //         resolve(reader.result as string);
+  //       };
+  //       reader.onerror = reject;
+  //       reader.readAsDataURL(fileBlob);
+  //     });
+
+  //     // Remove the "data:application/pdf;base64," prefix from the base64 string
+  //     const base64 = fileData.split(',')[1];
+
+  //     // Create a new file in the download directory
+  //     const fileUri = `${FileSystem.documentDirectory}${fileName}`;
+  //     await FileSystem.writeAsStringAsync(fileUri, base64, { encoding: FileSystem.EncodingType.Base64 });
+
+  //     // Return the file URI
+  //     return fileUri;
+  //   } else {
+  //     throw new Error(`Failed to fetch PDF: ${response.statusText}`);
+  //   }
+  // };
+
+  if (isDownloading) {
     return <LoadingScreen />;
-  } 
-  else {
+  } else {
     return (
       <View style={styles.rootContainer}>
         <View style={styles.card}>
@@ -111,19 +101,35 @@ const DetailsScreen = () => {
             />
           </View>
           <View style={styles.shareOptions}>
-            <View style={{flex: 1, alignItems: 'center',borderRightWidth: 2, borderColor: "#AF6A03", paddingRight: 15}}>
-              <Pressable 
+            <View
+              style={{
+                flex: 1,
+                alignItems: "center",
+                borderRightWidth: 2,
+                borderColor: "#AF6A03",
+                paddingRight: 15,
+              }}
+            >
+              <Pressable
                 onPress={savePressHandler}
-                android_ripple={{color: '#FFF4B7', borderless: true, radius: 50,}}
+                android_ripple={{
+                  color: "#FFF4B7",
+                  borderless: true,
+                  radius: 50,
+                }}
               >
                 <MaterialIcons name="save-alt" size={40} color="#9D5E00" />
                 <Text style={styles.shareOptionsText}>Save</Text>
               </Pressable>
             </View>
-            <View style={{flex: 1, alignItems: 'center', paddingLeft: 15}}>
-              <Pressable 
-                  onPress={sharePressHandler}
-                  android_ripple={{color: '#FFF4B7', borderless: true, radius: 50,}}
+            <View style={{ flex: 1, alignItems: "center", paddingLeft: 15 }}>
+              <Pressable
+                onPress={sharePressHandler}
+                android_ripple={{
+                  color: "#FFF4B7",
+                  borderless: true,
+                  radius: 50,
+                }}
               >
                 <MaterialIcons name="share" size={40} color="#9D5E00" />
                 <Text style={styles.shareOptionsText}>Share</Text>
@@ -217,10 +223,8 @@ const styles = StyleSheet.create({
     padding: 10,
     justifyContent: "center",
     alignItems: "center",
-    // backgroundColor: "#FFD56C",
     borderTopWidth: 1,
     borderTopColor: "#AF6A03",
-    // borderRadius: 16,
   },
   shareOptionsText: {
     fontSize: 15,
