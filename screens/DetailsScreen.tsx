@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ActivityIndicator,
   Pressable,
+  Share,
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import LoadingScreen from "./LoadingScreen";
@@ -22,7 +23,9 @@ const DetailsScreen = () => {
 
 
   const sharePressHandler = () => {
-    console.log("share option is clicked");
+    Share.share({
+      message: "http://www.pdf995.com/samples/pdf.pdf",
+    })
   };
 
   // CODE FOR DOWNLOADING IN APP'S PRIVATE ACCESS STORAGE
