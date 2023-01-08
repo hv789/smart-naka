@@ -9,18 +9,49 @@ import {
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import LoadingScreen from "./LoadingScreen";
-import { downloadFile } from "expo-filedownload";
+import * as FileSystem from 'expo-file-system';
+import * as Print from 'expo-print'
+import moment from 'moment';
 
 const DetailsScreen = () => {
   const [isDownloading, setIsDownloading] = useState(false);
-  const PDF_URL = { url: "http://www.pdf995.com/samples/pdf.pdf" };
+  const PDF_URL = "http://www.pdf995.com/samples/pdf.pdf";
 
   const savePressHandler = () => {
     setIsDownloading(true);
-    downloadFile(PDF_URL.url).then(() => setIsDownloading(false));
+    handleDownloadSourceCode(PDF_URL).then(() => setIsDownloading(false))
   };
 
+  const handleDownloadSourceCode = (PDF_URL: string) => {
+    const fileExtension = "pdf";
+    return new Promise((resolve, reject) => {
+      setTimeout(async function () {
 
+        let date = moment().format('YYYYMMDDhhmmss')
+        let fileUri = FileSystem.documentDirectory + `${date}.${fileExtension}`;
+        try {
+
+          const res = await FileSystem.downloadAsync(PDF_URL, fileUri)
+          let fileurl = res.uri
+          try {
+            Print.printAsync({
+            uri: fileurl
+          })
+          resolve(new Date())
+          }
+          catch (err) {
+            resolve(new Date())
+            console.log("Save err: ", err)
+          }
+        } 
+        catch (err) {
+          console.log("FS Err: ", err)
+        }
+
+      },500);
+    });
+
+  }
 
   const sharePressHandler = () => {
     Share.share({
