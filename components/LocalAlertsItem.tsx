@@ -16,36 +16,10 @@ interface Props {
 }
 
 const LocalAlertsItem: FC<Props> = ({ VehicleNumber, date, time }) => {
-  const [modalVisible, setModalVisible] = useState(false);
+  // const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <View>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          //   Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-        }}
-      >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalTitle}>Data Not Found</Text>
-            <Text style={styles.modalText}>
-              No data found. Please try different search terms or visit our
-              resources page.
-            </Text>
-            <Pressable
-              style={styles.button}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Close</Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
-
       <View style={styles.rootContainer}>
         <Text style={styles.vehicleNumber}>{VehicleNumber}</Text>
         <View style={styles.dateAndTime}>
@@ -53,13 +27,6 @@ const LocalAlertsItem: FC<Props> = ({ VehicleNumber, date, time }) => {
           <Text style={styles.dateTime}>{time}</Text>
         </View>
       </View>
-
-      <Button
-        onPress={() => setModalVisible(true)}
-        title="Button for testing alert modal"
-        color="#841584"
-        // accessibilityLabel="Learn more about this purple button"
-      />
     </View>
   );
 };
