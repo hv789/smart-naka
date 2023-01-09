@@ -11,11 +11,28 @@
   <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white">
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white">
 </p>
+
+# Introduction
+
 <ul>
-<li>Smart Naka is an app made by our team for the Ethos Hackathon - IIT Guwahati.</li>
-<li>It is majorily built on TypeScript and React Native.</li>
+<li>Smart Naka is an app made by our team for the Smart Naka Problem Statement of Ethos Hackathon - IIT Guwahati.</li>
+
 <li>It can fetch the information about a queried vehicle in the central database of stolen vehicles of government and verify whether that vehicle is stolen or not.</li>
-<li>We have tried to keep its UI modern and as per industry standards.</li>
+
+<li>The app also allows users to manually input vehicle details for searching. There are two options available for this: <b>Searching by Registration Number</b> and <b>Advanced Search</b>.</li>
+</ul>
+
+# Features
+
+*<b>*Note that we were not given info about the actual stolen vehicles API, so we have used sample data for now. This can be changed as and according to need.</b>* <br>As of now the app contain following features:
+<ul>
+<li><b>Search History: </b>It will allow the police officer to keep a track of recent vehicle numbers which were queried and found out to be stolen.</li>
+
+<li><b>Vehicle Details Card: </b>If the queried vehicle is found out to be stolen, a card will show the most important and relevant details needed by police officer.</li>
+
+<li><b>Save and Share: </b>The card has two options which will save or share a pdf containing full details of the stolen vehicle fetched by api.</li>
+
+<li><b>Local Alerts: </b>As of now this feature is not ready but can be implement. Other details on this can be found in <b>Ideation</b> section of this readme.</li>
 </ul>
 
 # Contributors 💪😎 
