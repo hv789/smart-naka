@@ -22,6 +22,10 @@
 <li>The app also allows users to manually input vehicle details for searching. There are two options available for this: <b>Searching by Registration Number</b> and <b>Advanced Search</b>.</li>
 </ul>
 
+# Getting Started
+
+Click on the install button after opening this <a href="https://expo.dev/accounts/hv789/projects/smart-naka/builds/ce701497-2a84-4bd1-b93b-01bb7d6e226e"> link </a> on your mobile.
+
 # Features
 
 *<b>*Note that we were not given info about the actual stolen vehicles API, so we have used sample data for now. This can be changed as and according to need.</b>* <br>As of now the app contain following features:
